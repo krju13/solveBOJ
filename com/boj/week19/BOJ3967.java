@@ -59,6 +59,7 @@ public class BOJ3967{
             makeResult();
             return;
         }
+        if(result[0]>0)return;
         if(num[deep]>0){
             //해당위치에 이미 숫자가 있으면
             //다음위치 숫자 정하러 들어간다.
@@ -87,25 +88,10 @@ public class BOJ3967{
             }
         }
         if(!answer)return;
-        if(result[0]==0){//한번도 답이 나온 적없으면 그냥 답으로 인정
             for(int i=0;i<12;i++)
                 result[i]=num[i];
-        }
-        else{
-            //answer==true
-            for(int i=0;i<12;i++){
-                if(result[i]<num[i]){//앞에서 부터 보는데 이미 지금답이 더 작으면 바꿀 필요 없음
-                    //result에 답이 이미 사전순으로 작음
-                    return;
-                }else if(result[i]>num[i]){
-                    answer=false;//이번에 만든 답이 더 작은 경우
-                    break;
-                }
-            }
-            for(int i=0;i<12;i++){
-                result[i]=num[i];//이번 답으로 정답 바꾸기
-            }
-        }
+
+
     }
 }
 
